@@ -1,6 +1,5 @@
 <?php
-    session_start();
-    include_once("db.php");
+    include 'header.php';
 // zodat de value (om de waarde te behouden na foutmelding) in form niet als tekst wordt geprint.
     $title = '';
     $content = '';
@@ -13,8 +12,9 @@
         $author = strip_tags($_SESSION['username']);
         //$author = mysqli_real_escape_string($db, $author);
         $captcha = strip_tags($_POST['captcha']); 
+        $code = $_POST['cap'];
         $sql =  "INSERT into post (title, content, author) VALUES ('$title', '$content', '$author')";
-           if($title == "" || $content == "" || $author == "id" || $captcha != 2 || $captcha == "") {
+           if($title == "" || $content == "" || $author == "id" || $captcha != $code || $captcha == "") {
             echo "De post is niet compleet ingevuld!";
         }
         else {
@@ -23,24 +23,26 @@
         }
       }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="post_style.css">
+    <link rel="stylesheet" href="styles/post_style.css">
     <title>Blog - berichten</title>
 </head>
 
-<body background="3.jpg">
-    <?php echo $_SESSION['username']; ?>
+<body>
+    <!--<?php echo $_SESSION['username']; ?> -->
     <form action="post.php" method="post" enctype="multipart/form-data">
         <input placeholder="Title" name="title" type="text" autofocus size="48" value="<?php echo $title; ?>"><br/><br/>
         <textarea placeholder="Content" name="content" rows="20" cols="50"><?php echo $content; ?></textarea><br/>
         <input name="post" type="submit" value="Post">
         <input name="reset" type="reset" value="Reset">
-        <input type="button" value="Terug" onclick="location.href='index.php';">   
-        <p>1+1=</p>
-        <input placeholder="Wat is 1+1" type="text" name="captcha">  
+        <input type="button" value="Terug" onclick="location.href='index.php';"><br/>
+        <?php echo $cap = (rand(100,1000)); ?>
+        <input placeholder="Wat is de code?" type="text" name="captcha">
+        <input type="hidden" name="cap" value="<?php echo $cap;?>">
+
+         
     </form>
 </body>    
 </html>

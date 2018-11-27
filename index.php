@@ -1,15 +1,4 @@
-<?php
-    include_once("db.php");
-    session_start();
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="/styles/style.css">
-    <title>Blog</title>
-</head>
-
+<?php include 'header.php';?>
 <body>
     <div id=makeup>
         <?php if(isset($_SESSION['username'])) { ?>
@@ -40,7 +29,6 @@
                         $content = $row['content'];
                         $author = $row['author'];
                         $date = $row['date'];
-                        //$username = $row['username'];
                         $admin = "<div><a href='del_post.php?pid=$id'>Delete</a>&nbsp;<a href='edit_post.php?pid=$id'>Edit</a>&nbsp;<a href='post.php?pid=$id'>New</a></div>";
                         $output = $bbcode->Parse($content);
                         $post = "<div><h2><a href='view_post/php?pid=$id'>$title</a></h2><H2>$author</h2><h3>$date</h3><p>$output</p>$admin</div>";

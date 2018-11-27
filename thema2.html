@@ -1,0 +1,36 @@
+!
+
+
+
+<!-- catogorie keuze menu -->
+
+<script type="text/javascript">
+    //<![CDATA[
+    function chkBoxes() {
+        var msg = document.getElementById("msg");
+            cb1 = document.getElementById("cb1"),
+            cb2 = document.getElementById("cb2"),
+            cb3 = document.getElementById("cb3"),
+            cb4 = document.getElementById("cb4");
+    
+        if (cb1.checked) {
+            if (cb2.checked || cb3.checked || cb4.checked) {
+                msg.innerHTML = "Keuze 1 niet mogelijk in combinatie met andere opties.";
+                cb2.checked = false;
+                cb3.checked = false;
+                cb4.checked = false;
+            } 
+        } else {
+            msg.innerHTML = "";
+        }
+    }
+    //]]>
+    </script>
+    </head>
+    <body>
+    <input type="checkbox" name="d[]" id="cb1" value="1" onchange="chkBoxes();"> Overige
+    <input type="checkbox" name="d[]" id="cb2" value="2" onchange="chkBoxes();"> Gezondheid
+    <input type="checkbox" name="d[]" id="cb3" value="3" onchange="chkBoxes();"> ICT
+    <input type="checkbox" name="d[]" id="cb4" value="4" onchange="chkBoxes();"> Politiek
+    <p id="msg"></p
+    >

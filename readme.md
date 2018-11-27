@@ -1,37 +1,25 @@
-Goedendag,
+User stories:
+Code
+User story
+W4-01
+Als een Blogger wil ik een artikel aan één categorie kunnen koppelen zodat mijn lezers sneller artikelen kunnen vinden rondom een bepaald thema
+W4-02
+Als een Lezer wil ik alleen de artikelen in een bepaalde categorie kunnen selecteren zodat ik gericht alle artikelen over een bepaald thema kan lezen
+W4-03
+Als een Blogger wil ik zelf categorieën kunnen toevoegen zodat ik niet afhankelijk ben van de developer die mijn blog heeft ontwikkeld
+W4-04
+Als een Blogger wil ik ook meerdere categorieën kunnen koppelen aan een artikel zodat ik me niet hoef te beperken tot één thema
 
-w3-001
-Ik kan berichten plaatsen in mijn database.
+Optionele user stories
 
-w3-002
-Deze zijn zichtbaar voor iedereen ingelogd of niet, alleen als niet ingelogd kun je niet wijzigen of verwijderen.
-
-w3-003
-Alleen als je ingelogd bent kun je berichten verwijderen.
-
-w3-004
-Alleen als je ingelogd bent kun je berichten wijzigen.
-
-w3-005
-Ik kan het nog niet laten sorteren op datum of gebruiker.
-
-w3-006
-Tabel beschikbaar in phpMyAdmin.
-
-w3-007
-Je kan als gebruiker inloggen en onder die naam meerder berichten plaatsen.
-
-w3-008
-Je kan je registeren.
-
-w3-009
-geen beheerder aanwezig, Lord of the Flies.
-
-w3-010
-Geen zoekfunctie aanwezig.
-
-mvg
-Arno
+Code
+User story
+W4-05
+Als een Blogger wil ik de tekst in het artikel kunnen formatteren (bijv. vet gedrukt of cursief maken) zodat ik duidelijker mijn boodschap kan overbrengen
+Tip: maak hierbij gebruik van een standaard Javascript library
+W4-06
+Als een Blogger wil ik een afbeeldingen in een artikel kunnen plaatsen zodat ik duidelijker mijn boodschap kan overbrengen
 
 
+https://www.youtube.com/watch?v=4ZBTeqSuBrk
 
