@@ -32,12 +32,12 @@
 
 <body>
     <!--<?php echo $_SESSION['username']; ?> -->
-    <form action="post.php" method="post" enctype="multipart/form-data">
+    <form action="post.php" method="post" enctype="multipart/form-data"><br/>
         <input placeholder="Title" name="title" type="text" autofocus size="48" value="<?php echo $title; ?>"><br/><br/>
-        <textarea placeholder="Content" name="content" rows="20" cols="50"><?php echo $content; ?></textarea><br/>
+        <textarea placeholder="Content" name="content" rows="20" cols="50"><?php echo $content; ?></textarea><br/><br/>
         <input name="post" type="submit" value="Post">
         <input name="reset" type="reset" value="Reset">
-        <input type="button" value="Terug" onclick="location.href='index.php';"><br/>
+        <input type="button" value="Terug" onclick="location.href='index.php';"><br/><br/>
         <?php echo $cap = (rand(100,1000)); ?>
         <input placeholder="Wat is de code?" type="text" name="captcha">
         <input type="hidden" name="cap" value="<?php echo $cap;?>">
