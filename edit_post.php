@@ -1,5 +1,6 @@
 <?php
     include 'header.php';
+    include 'thema2.html';
     if(!isset($_GET['pid'])) {
         header("location: login.php");
     }

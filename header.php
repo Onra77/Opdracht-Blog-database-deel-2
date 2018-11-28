@@ -8,5 +8,5 @@
 <head>
     <link rel="stylesheet" href="styles/style.css">
     <title>Blog</title>
-    <?php include 'thema.html'; ?>
+    
 </head>

@@ -1,5 +1,6 @@
 <?php
     include 'header.php';
+    include 'thema2.html';
 // zodat de value (om de waarde te behouden na foutmelding) in form niet als tekst wordt geprint.
     $title = '';
     $content = '';
