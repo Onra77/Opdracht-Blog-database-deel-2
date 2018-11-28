@@ -1,5 +1,24 @@
 <?php include 'header.php';?>
 <body>
+
+    <?php
+    $sql = "SELECT * FROM categories ORDER BY id DESC";
+    $res = mysqli_query($db, $sql) or die(mysqli_error($db));
+    $post ="";
+    if(mysqli_num_rows($res) >0) {
+        while($row = mysqli_fetch_assoc($res)) {
+            $name = $row['name'];
+            $admin = 
+            $post = "<div>$name</div>";
+            echo $post;
+            }
+        } else {echo "Geen categorieën.";
+            }
+
+             //<input type="checkbox" name="name[]" value="{$row['namefield']}" /> {$row['namefield']}<br />
+           
+    ?>
+
     <div id=makeup>
         <?php if(isset($_SESSION['username'])) { ?>
             <input type="button" value="Logout" onclick="logout();">
