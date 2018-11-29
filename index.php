@@ -2,22 +2,19 @@
 <body>
 
     <?php
-    $sql = "SELECT * FROM categories ORDER BY id DESC";
+    $sql = "SELECT * FROM categories ORDER BY id ASC";
     $res = mysqli_query($db, $sql) or die(mysqli_error($db));
-    $post ="";
+    //$post ="";
     if(mysqli_num_rows($res) >0) {
         while($row = mysqli_fetch_assoc($res)) {
-            $name = $row['name'];
-            $admin = 
-            $post = "<div>$name</div>";
-            echo $post;
+            $tagid = $row['id'];
+            echo "<input type='checkbox' name='cats[]' value='$tagid'  />";
+            echo $row['category'];
             }
-        } else {echo "Geen categorieën.";
+        }else {echo "Geen categorieën.";
             }
-
-             //<input type="checkbox" name="name[]" value="{$row['namefield']}" /> {$row['namefield']}<br />
-           
     ?>
+        <input name="post" type="submit" value="Filter">
 
     <div id=makeup>
         <?php if(isset($_SESSION['username'])) { ?>
@@ -47,13 +44,16 @@
                         $title = $row['title'];
                         $content = $row['content'];
                         $author = $row['author'];
+                        $cats = $row['cat_id'];
                         $date = $row['date'];
                         $admin = "<div><a href='del_post.php?pid=$id'>Delete</a>&nbsp;<a href='edit_post.php?pid=$id'>Edit</a>&nbsp;<a href='post.php?pid=$id'>New</a></div>";
                         $output = $bbcode->Parse($content);
-                        $post = "<div><h2><a href='view_post/php?pid=$id'>$title</a></h2><H2>$author</h2><h3>$date</h3><p>$output</p>$admin</div>";
+                        $post = "<div><h2><a href='view_post/php?pid=$id'>$title</a></h2><H2>$author</h2><h2>$cats</h2><h3>$date</h3><p>$output</p>$admin</div>";
                         echo $post;
+                        //select * from post where cat_id =2;
+                        
                     }
-            } else {    echo "er zijn geen berichten.";
+                } else {    echo "er zijn geen berichten.";
                     }
                 } else if(mysqli_num_rows($res) >0) {
                     while($row = mysqli_fetch_assoc($res)) {
@@ -61,7 +61,6 @@
                         $title = $row['title'];
                         $content = $row['content'];
                         $date = $row['date'];
-                        $admin = 
                         $output = $bbcode->Parse($content);
                         $post = "<div><h2><a href='view_post/php?pid=$id'>$title</a></h2><h3>$date</h3><p>$output</div>";
                         echo $post;
