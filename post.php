@@ -39,7 +39,6 @@
         <?php
             $sql = "SELECT * FROM categories ORDER BY id ASC";
             $res = mysqli_query($db, $sql) or die(mysqli_error($db));
-            //$post ="";
             if(mysqli_num_rows($res) >0) {
             while($row = mysqli_fetch_assoc($res)) {
                 $tagid = $row['id']; ?>
@@ -51,7 +50,8 @@
                 }
             }else {echo "Geen categorieën.";
                 }
-        ?>   
+        ?> 
+        <br/><br/>
         <input placeholder="Title" name="title" type="text" autofocus size="48" value="<?php echo $title; ?>"><br/><br/>
         <textarea placeholder="Content" name="content" rows="20" cols="50"><?php echo $content; ?></textarea><br/><br/>
         <input name="post" type="submit" value="Post">

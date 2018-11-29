@@ -1,1 +1,24 @@
 https://trello.com/b/AFpsKxEv
+
+$x = 1;
+            if ($x == 1) {
+            $sql = "SELECT * FROM post WHERE cat_id like '1' ORDER BY id DESC;
+            }
+            elseif ($x == 2) {
+            $sql = "SELECT * FROM post WHERE cat_id like '2' ORDER BY id DESC;
+            }
+            elseif ($x == 3) {
+            $sql = "SELECT * FROM post WHERE cat_id like '3' ORDER BY id DESC;
+            }
+            elseif ($x == 4) {
+            $sql = "SELECT * FROM post WHERE cat_id like '4' ORDER BY id DESC;
+            }
+            elseif ($x == 5) {
+            $sql = "SELECT * FROM post WHERE cat_id like '5' ORDER BY id DESC;
+            }
+            elseif ($x == 6) {
+            $sql = "SELECT * FROM post WHERE cat_id like '6' ORDER BY id DESC;
+            }
+            else {
+            $sql = "SELECT * FROM post ORDER BY id DESC";
+            }   

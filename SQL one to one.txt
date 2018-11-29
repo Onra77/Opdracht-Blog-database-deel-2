@@ -3,7 +3,7 @@ connect blog;
 
 create table categories (
 id INT NOT NULL AUTO_INCREMENT, 
-name VARCHAR (255) NOT NULL, 
+category VARCHAR (255) NOT NULL, 
 PRIMARY KEY (ID));
 
 create table post (
@@ -14,8 +14,7 @@ author VARCHAR (50) NOT NULL,
 date TIMESTAMP, 
 cat_id INT NOT NULL, 
 PRIMARY KEY (id),
-CONSTRAINT FOREIGN KEY (cat_id) REFERENCES categories (id)
-);
+CONSTRAINT FOREIGN KEY (cat_id) REFERENCES categories (id));
 
 create table login (
 id INT NOT NULL AUTO_INCREMENT, 
@@ -24,19 +23,16 @@ email VARCHAR (50) NOT NULL,
 password VARCHAR (50) NOT NULL, 
 PRIMARY KEY (ID),
 CONSTRAINT UNIQUE (username),
-CONSTRAINT UNIQUE (email)
-);
+CONSTRAINT UNIQUE (email));
 
-INSERT INTO categories (name) VALUES ('overige');
-INSERT INTO categories (name) VALUES ('gezondheid');
-INSERT INTO categories (name) VALUES ('ICT');
-INSERT INTO categories (name) VALUES ('politiek');
-INSERT INTO categories (name) VALUES ('sport');
-INSERT INTO categories (name) VALUES ('reizen');
+INSERT INTO categories (category) VALUES ('overige');
+INSERT INTO categories (category) VALUES ('gezondheid');
+INSERT INTO categories (category) VALUES ('ICT');
+INSERT INTO categories (category) VALUES ('politiek');
+INSERT INTO categories (category) VALUES ('sport');
+INSERT INTO categories (category) VALUES ('reizen');
 
 ---------- einde blog--------------------
-
-
 
 connect blog;
 
@@ -52,16 +48,10 @@ update post set cat_id = '17' where id = '17';				In terminal
 update post set cat_id = '19' where id = '19';				In terminal
 update post set cat_id = '37' where id = '37';				In terminal
 
-
-
-
-
-
-
-
 CONSTRAINT blog ADD FOREIGN KEY (cat_id) REFERENCES categories (id);
 
 MariaDB 10.1.8:
 ALTER TABLE submittedForecast  ADD CONSTRAINT FOREIGN KEY (data) REFERENCES blobs (id);
 ALTER TABLE post ADD CONSTRAINT FOREIGN KEY (cat_id) REFERENCES categories (id);
 
+//select * from post where cat_id =2;
