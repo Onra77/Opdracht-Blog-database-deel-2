@@ -3,7 +3,6 @@
     // zodat de value (om de waarde te behouden na foutmelding) in form niet als tekst wordt geprint.
     $title = '';
     $content = '';
-    //$tagid = '';
    
     if(isset($_POST['post'])) {
         $title = strip_tags($_POST['title']);
@@ -39,19 +38,24 @@
         <?php
             $sql = "SELECT * FROM categories ORDER BY id ASC";
             $res = mysqli_query($db, $sql) or die(mysqli_error($db));
+            //$post ="";
             if(mysqli_num_rows($res) >0) {
             while($row = mysqli_fetch_assoc($res)) {
-                $tagid = $row['id']; ?>
-                <!-- is $_POST['cats'] gelijk aan de tagid echo dan checked -->
-                <input type='radio' name= 'cats' <?php echo $tagid; ?> value='<?php echo $tagid ?>'/>
-                <?php echo $row['category'];
+                $tagid = $row['id'];
+                echo "<input type='radio' name= 'cats[]' value='.$tagid.'  />";
+                echo $row['category'];
                 //echo $tagid;
                 //echo $post;
+
                 }
             }else {echo "Geen categorieën.";
                 }
-        ?> 
-        <br/><br/>
+        ?>   
+            <!-- <input type="checkbox" name="cats" value="tagid" /> -->
+        
+    </form>
+    <!--<?php echo $_SESSION['username']; ?> -->
+    <form action="post.php" method="post" enctype="multipart/form-data"><br/>
         <input placeholder="Title" name="title" type="text" autofocus size="48" value="<?php echo $title; ?>"><br/><br/>
         <textarea placeholder="Content" name="content" rows="20" cols="50"><?php echo $content; ?></textarea><br/><br/>
         <input name="post" type="submit" value="Post">

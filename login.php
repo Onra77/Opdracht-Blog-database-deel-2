@@ -1,11 +1,12 @@
 <?php
 include_once("db.php");
 session_start();
-//echo $_SESSION['username'];
-if(isset($_SESSION['username'])) {
-//true al ingelogd
-header("location:index.php");
-    } else{
+    //echo $_SESSION['username'];
+    if(isset($_SESSION['username'])) {
+    //true al ingelogd
+    header("location:index.php");
+        } else{
+            
         if(isset($_POST['submit']))  { 
         //$username = $_POST['username'];
         $username = mysqli_real_escape_string($db, ($_POST['username']));
